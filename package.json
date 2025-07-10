@@ -1,0 +1,38 @@
+{
+	"dependencies": {
+		"neinth": "^0.11.3",
+		"vivth": "^0.9.4"
+	},
+	"name": "neinth-auto-doc",
+	"module": "index.mjs",
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"version": "0.1.0",
+	"description": "auto documentation for mjs file",
+	"main": "index.mjs",
+	"scripts": {
+		"dev": "bunx neinth"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hakimjazuli/neinth-auto-doc.git"
+	},
+	"keywords": [
+		"auto-documentation",
+		"mjs-with-exported-type"
+	],
+	"author": "hakim_jazuli",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hakimjazuli/neinth-auto-doc/issues"
+	},
+	"homepage": "https://github.com/hakimjazuli/neinth-auto-doc#readme",
+	"bin": {
+		"neinth-auto-doc-starter-file": "neinth-auto-doc-starter-file.mjs"
+	}
+}
