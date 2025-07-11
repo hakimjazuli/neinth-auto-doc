@@ -205,20 +205,24 @@ export class DetailsHandler {
 		const importMatch = genericType.match(/^import\(['"](.+?)['"]\)\.(\w+)$/);
 		if (importMatch && importMatch[1].includes('.')) {
 			const [_, importPath, suffix] = importMatch;
-			const resolvedPath_ = `${dirname(relativePath)}/${importPath}`.split('/');
-			for (let i = 0; i < resolvedPath_.length; i++) {
-				const path = resolvedPath_[i];
+			const tempPaths = `${dirname(relativePath)}/${importPath}`.split('/');
+			const trueResolved = [];
+			for (let i = 0; i < tempPaths.length; i++) {
+				const path = tempPaths[i];
 				if (i == 0) {
 					continue;
 				}
 				if (path === '.') {
-					resolvedPath_[i] = '';
-				} else if (path === '..') {
-					resolvedPath_[i - 1] = '';
+					continue;
 				}
+				if (path === '..') {
+					trueResolved.pop();
+					continue;
+				}
+				trueResolved.push(path);
 			}
-			genericType = `import('${NeinthRuntime.normalizePath(
-				resolvedPath_.join('/').replace(/\/+/g, '/')
+			genericType = `import('./${NeinthRuntime.normalizePath(
+				trueResolved.join('/').replace(/\/+/g, '/')
 			)}').${suffix}`;
 		}
 		return [genericType, genericName];
@@ -313,10 +317,10 @@ const neinthInstance = new NeinthComponent(async function () {
 						exports.push(`export {${basename}} from '${relativeFromRoot}';`);
 						exportedClass.push(`- [${basename}](#${lowerBasename})`);
 						classDef.push(`<h2 id="${lowerBasename}">${basename}</h2>
+
+${detail.exportedDescription}
 	
-	${detail.exportedDescription}
-	
-	*) <sub>[go to ${tableOfContentTitle}](#${tableOfContentTitle})</sub>`);
+*) <sub>[go to ${tableOfContentTitle_}](#${tableOfContentTitle})</sub>`);
 					}
 					if (detail.exportedTypedef) {
 						types.push(detail.exportedTypedef);
@@ -332,39 +336,39 @@ const neinthInstance = new NeinthComponent(async function () {
 							template: {
 								string: `// @ts-check
 	
-	/**
-	 * generated using:
-	 * @see {@link https://www.npmjs.com/package/neinth-auto-doc | neinth-auto-doc}
-	 * 
-	 * @description
-	 */
-	
-	/**
-	 * export
-	 */
-	
-	/**
-	 * types
-	 */`
+/**
+ * generated using:
+ * @see {@link https://www.npmjs.com/package/neinth-auto-doc | neinth-auto-doc}
+ * 
+ * @description
+ */
+
+/**
+ * export
+ */
+
+/**
+ * types
+ */`
 									.replace(
 										`/**
-	 * export
-	 */`,
+ * export
+ */`,
 										exports.join('\n')
 									)
 									.replace(
 										`/**
-	 * types
-	 */`,
+ * types
+ */`,
 										types.join('\n')
 									)
 									.replace(
 										` * @description
-	 */`,
+ */`,
 										` * @description
-	 * build using [neinth-auto-doc]()
-	${DetailsHandler.annotateLines(`${copyright}\n\n${description}`, ' * ')}
-	 */`
+ * build using [neinth-auto-doc]()
+${DetailsHandler.annotateLines(`${copyright}\n\n${description}`, ' * ')}
+ */`
 									),
 							},
 						},
@@ -374,15 +378,15 @@ const neinthInstance = new NeinthComponent(async function () {
 							template: {
 								string: `## description
 	
-	## table-of-content
-	
-	## exported`
+## table-of-content
+
+## exported`
 									.replace('## description', description)
 									.replace(
 										'## table-of-content',
 										`<h2 id="${tableOfContentTitle}">${tableOfContentTitle_}</h2>
-	
-	${exportedClass.join('\n')}`
+
+${exportedClass.join('\n')}`
 									)
 									.replace('## exported', classDef.join('\n')),
 							},

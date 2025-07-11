@@ -17,7 +17,7 @@
 - ⚠⚠⚠ installation ⚠⚠⚠:
 
 > - ⚠⚠⚠ the `i` flag are for fresh installation, and might overwrite same name file, suggested to
->   rename the every other than `core` `dir` into something else; ⚠⚠⚠
+>   rename the every other than `core` directory into something else; ⚠⚠⚠
 
 ```shell
 npm i neinth-auto-doc
@@ -30,4 +30,12 @@ npx neinth-auto-doc-starter-file
 ```shell
 npm i neinth-auto-doc
 npx neinth-package -p neinth-auto-doc
+```
+
+## how to run
+
+- `neinth` packages can be run with
+
+```shell
+npx neinth
 ```

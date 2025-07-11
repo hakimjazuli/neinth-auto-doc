@@ -17,7 +17,7 @@
 - ⚠⚠⚠ installation ⚠⚠⚠:
 
 > - ⚠⚠⚠ the `i` flag are for fresh installation, and might overwrite same name file, suggested to
->   rename the every other than `core` `dir` into something else; ⚠⚠⚠
+>   rename the every other than `core` directory into something else; ⚠⚠⚠
 
 ```shell
 npm i neinth-auto-doc
@@ -32,15 +32,23 @@ npm i neinth-auto-doc
 npx neinth-package -p neinth-auto-doc
 ```
 
+## how to run
+
+- `neinth` packages can be run with
+
+```shell
+npx neinth
+```
+
 	
-	<h2 id="class-documentations">class documentations</h2>
-	
-	- [Configs](#configs)
+<h2 id="class-documentations">class documentations</h2>
+
+- [Configs](#configs)
 - [DetailsHandler](#detailshandler)
-	
-	<h2 id="configs">Configs</h2>
-	
-	`Configs` constructor parameters;
+
+<h2 id="configs">Configs</h2>
+
+`Configs` constructor parameters;
 ```js
 /**
 * @typedef {import('neinth/src/helpers/Infos.mjs').Infos} Infos
@@ -56,10 +64,10 @@ npx neinth-package -p neinth-auto-doc
 */
 ```
 	
-	*) <sub>[go to class-documentations](#class-documentations)</sub>
+*) <sub>[go to class documentations](#class-documentations)</sub>
 <h2 id="detailshandler">DetailsHandler</h2>
-	
-	quirks:
+
+quirks:
 - auto generate on `entryPoint` if this requirements are fulfilled:
 >- first letter must be `upperCase` for `Go-ish` style;
 >- add `module` to `entryPoint`:
@@ -74,4 +82,4 @@ npx neinth-package -p neinth-auto-doc
 >>- must have `@typedef` of the same name to it's `fileName`;
 >>- will convert that block only to `@typedef` on `entryPoint` as `imported` `@typedef`;
 	
-	*) <sub>[go to class-documentations](#class-documentations)</sub>
+*) <sub>[go to class documentations](#class-documentations)</sub>
