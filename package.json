@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"neinth": "^0.11.3",
+		"neinth": "^0.11.5",
 		"vivth": "^0.9.4"
 	},
 	"name": "neinth-auto-doc",

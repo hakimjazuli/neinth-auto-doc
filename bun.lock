@@ -3,7 +3,7 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "neinth": "^0.11.3",
+        "neinth": "^0.11.5",
         "vivth": "^0.9.4",
       },
       "devDependencies": {
@@ -57,7 +57,7 @@
 
     "lodash": ["lodash@4.17.21", "", {}, "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="],
 
-    "neinth": ["neinth@0.11.3", "", { "dependencies": { "@html_first/js_lib_template": "^2.0.17", "@types/node": "^24.0.7", "chokidar": "^4.0.3", "vivth": "^0.9.4", "xixth": "^0.10.8" }, "bin": { "neinth": "bin.mjs", "neinth-package": "bin-package.mjs", "neinth-starter": "bin-starter.mjs" } }, "sha512-8yAm9D4HIfIKZv4AccCp84mFp9pD6wzPPLlnF0jkcTS1ZT81KUR01Nm5vFpS1EvRGXZSFRbPlms8MhvLrXOoIQ=="],
+    "neinth": ["neinth@0.11.5", "", { "dependencies": { "@html_first/js_lib_template": "^2.0.17", "@types/node": "^24.0.7", "chokidar": "^4.0.3", "vivth": "^0.9.4", "xixth": "^0.10.8" }, "bin": { "neinth": "bin.mjs", "neinth-package": "bin-package.mjs", "neinth-starter": "bin-starter.mjs" } }, "sha512-+VQchY9a9izwQ6VkqjTwuaNLEe7cKfT5eQURmunOqEguh7EWQNgbg5UX10q+2yYtlgsW6QnDcByv3SRo/DUEaA=="],
 
     "readdirp": ["readdirp@4.1.2", "", {}, "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg=="],
 
