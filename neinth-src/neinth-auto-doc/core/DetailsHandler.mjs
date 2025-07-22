@@ -276,7 +276,7 @@ const neinthInstance = new NeinthComponent(async function () {
 				}
 				let description = '';
 				readmemain.infos.forEach((info) => {
-					description = info.content;
+					description = info.content ?? '';
 				});
 				const {
 					copyright,
@@ -300,12 +300,11 @@ const neinthInstance = new NeinthComponent(async function () {
 					if (info.ext.noDot !== 'mjs') {
 						continue;
 					}
-					const haveValidJsExport = await info.importAsModuleJS
-						.then((module) => {
-							return info.baseName.noExt in module;
-						})
-						.catch(() => false)
-						.finally(() => true);
+					const regexForValidExportedModule = new RegExp(
+						`^export\\s+(const|class|function|async\\s+function)\\s+${basename}`,
+						'gm'
+					);
+					const haveValidJsExport = regexForValidExportedModule.test(info.content);
 					const detail = new DetailsHandler({
 						content: info.content,
 						relativeFromRoot,

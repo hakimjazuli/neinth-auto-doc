@@ -1,14 +1,14 @@
 {
 	"dependencies": {
-		"neinth": "^0.11.5",
-		"vivth": "^0.9.4"
+		"neinth": "^0.11.5"
+	},
+	"devDependencies": {
+		"vivth": "^0.9.4",
+		"@types/bun": "latest"
 	},
 	"name": "neinth-auto-doc",
 	"module": "index.mjs",
 	"type": "module",
-	"devDependencies": {
-		"@types/bun": "latest"
-	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
 	},
