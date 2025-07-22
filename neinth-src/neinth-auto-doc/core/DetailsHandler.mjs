@@ -301,10 +301,10 @@ const neinthInstance = new NeinthComponent(async function () {
 						continue;
 					}
 					const regexForValidExportedModule = new RegExp(
-						`^export\\s+(const|class|function|async\\s+function)\\s+${basename}`,
+						`^export\\s+(const|class|function|async\\s+function)\\s+\\${basename}`,
 						'gm'
 					);
-					const haveValidJsExport = regexForValidExportedModule.test(info.content);
+					const haveValidJsExport = regexForValidExportedModule.test(info.content ?? '');
 					const detail = new DetailsHandler({
 						content: info.content,
 						relativeFromRoot,

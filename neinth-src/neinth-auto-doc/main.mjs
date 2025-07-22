@@ -12,7 +12,7 @@ const editableConfig = {
 
 /**
  * @type {NeinthComponent<
- * import('./core/Configs.mjs').Configs,
+ * undefined | import('./core/Configs.mjs').Configs,
  * undefined
  * >}
  */
