@@ -301,7 +301,7 @@ const neinthInstance = new NeinthComponent(async function () {
 						continue;
 					}
 					const regexForValidExportedModule = new RegExp(
-						`^export\\s+(const|class|function|async\\s+function)\\s+\\${basename}`,
+						`^export\\s+(const|class|function|async\\s+function)\\s+(\\${basename}|${basename})`,
 						'gm'
 					);
 					const haveValidJsExport = regexForValidExportedModule.test(info.content ?? '');
