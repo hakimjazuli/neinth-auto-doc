@@ -1,9 +1,9 @@
 {
 	"dependencies": {
-		"neinth": "^0.11.5"
+		"neinth": "^0.11.5",
+		"vivth": "^0.10.0"
 	},
 	"devDependencies": {
-		"vivth": "^0.9.4",
 		"@types/bun": "latest"
 	},
 	"name": "neinth-auto-doc",
